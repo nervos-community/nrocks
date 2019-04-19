@@ -1,98 +1,46 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-import Container from 'components/Container';
-import Flex from 'components/Flex';
-import {Link} from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
-import {colors, fonts, media} from 'theme';
+import { Link } from 'gatsby';
+import { colors } from 'theme';
+import ArrowBackIcon from 'svg/ArrowBack';
+import ArrowForwardIcon from 'svg/ArrowForward';
 
-const NavigationFooter = ({next, prev, location}) => {
+const NavigationFooter = ({ next, prev, location }) => {
   return (
     <div
       css={{
-        background: colors.dark,
-        color: colors.white,
+        color: colors.text,
         paddingTop: 50,
         paddingBottom: 50,
-      }}>
-      <Container>
-        <Flex
-          type="ul"
-          halign="space-between"
-          css={{
-            [media.between('small', 'medium')]: {
-              paddingRight: 240,
-            },
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}
+    >
+      {prev && (
+        <PrimaryLink location={location} to={`${prev.id}.html`}>
+          <ArrowBackIcon css={{ fill: 'rgba(33,33,33,.8)' }} />
+          <div>
+            <SecondaryLabel>Previous</SecondaryLabel>
+            <PrimaryLabel css={{ paddingTop: 10 }}>{prev.title}</PrimaryLabel>
+          </div>
+        </PrimaryLink>
+      )}
 
-            [media.between('large', 'largerSidebar')]: {
-              paddingRight: 280,
-            },
-
-            [media.between('largerSidebar', 'sidebarFixed', true)]: {
-              paddingRight: 380,
-            },
-          }}>
-          <Flex basis="50%" type="li">
-            {prev && (
-              <div>
-                <SecondaryLabel>Previous article</SecondaryLabel>
-                <div
-                  css={{
-                    paddingTop: 10,
-                  }}>
-                  <PrimaryLink location={location} to={`${prev.id}.html`}>
-                    {prev.title}
-                  </PrimaryLink>
-                </div>
-              </div>
-            )}
-          </Flex>
-          {next && (
-            <Flex
-              halign="flex-end"
-              basis="50%"
-              type="li"
-              css={{
-                textAlign: 'right',
-              }}>
-              <div>
-                <SecondaryLabel>Next article</SecondaryLabel>
-                <div
-                  css={{
-                    paddingTop: 10,
-                  }}>
-                  <PrimaryLink location={location} to={`${next.id}.html`}>
-                    {next.title}
-                  </PrimaryLink>
-                </div>
-              </div>
-            </Flex>
-          )}
-        </Flex>
-      </Container>
+      {next && (
+        <PrimaryLink location={location} to={`${next.id}.html`}>
+          <div>
+            <SecondaryLabel>Next</SecondaryLabel>
+            <PrimaryLabel css={{ paddingTop: 10 }}>{next.title}</PrimaryLabel>
+          </div>
+          <ArrowForwardIcon css={{ fill: 'rgba(33,33,33,.8)' }} />
+        </PrimaryLink>
+      )}
     </div>
   );
 };
 
-NavigationFooter.propTypes = {
-  next: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
-  prev: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
-};
-
 export default NavigationFooter;
 
-const PrimaryLink = ({children, to, location}) => {
+const PrimaryLink = ({ children, to, location }) => {
   // quick fix
   // TODO: replace this with better method of getting correct full url
   const updatedUrl =
@@ -100,35 +48,48 @@ const PrimaryLink = ({children, to, location}) => {
   return (
     <Link
       css={{
-        display: 'inline',
-        borderColor: colors.subtle,
-        transition: 'border-color 0.2s ease',
-        fontSize: 30,
-        borderBottomWidth: 1,
-        borderBottomStyle: 'solid',
-
-        [media.lessThan('large')]: {
-          fontSize: 24,
-        },
-        [media.size('xsmall')]: {
-          fontSize: 16,
-        },
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        textDecoration: 'none',
+        width: 'calc(50% - 16px)',
+        border: '1px solid #E6ECF1',
+        boxShadow: `0 3px 8px 0 rgba(116, 129, 141, 0.1)`,
+        padding: 16,
         ':hover': {
-          borderColor: colors.white,
-        },
+          borderColor: colors.primary
+        }
       }}
-      to={updatedUrl}>
+      to={updatedUrl}
+    >
       {children}
     </Link>
   );
 };
 
-const SecondaryLabel = ({children}) => (
+const SecondaryLabel = ({ children }) => (
   <div
     css={{
-      color: colors.brand,
-      ...fonts.small,
-    }}>
+      color: 'rgba(0, 0, 0, 0.54)',
+      fontSize: '0.75rem',
+      fontWeight: 400,
+      lineHeight: '1.375em'
+    }}
+  >
+    {children}
+  </div>
+);
+
+const PrimaryLabel = ({ children }) => (
+  <div
+    css={{
+      color: 'rgba(0, 0, 0, 0.87)',
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: '1.46429em',
+      paddingTop: 8
+    }}
+  >
     {children}
   </div>
 );

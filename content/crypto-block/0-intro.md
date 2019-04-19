@@ -1,5 +1,7 @@
 ---
-title: Hello
+id: 0-intro
+title: 课程简介
+permalink: crypto-block/0-intro.html
 next: 1-punk.html
 ---
 

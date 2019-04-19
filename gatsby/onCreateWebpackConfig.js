@@ -1,15 +1,7 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict';
-
-const {resolve} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 
-module.exports = ({stage, actions}) => {
+module.exports = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [

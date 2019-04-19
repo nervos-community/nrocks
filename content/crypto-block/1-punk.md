@@ -1,11 +1,10 @@
 ---
 id: 1-punk
-title: 朋克
+title: 密码朋克运动
 permalink: crypto-block/1-punk.html
 prev: 0-intro.html
 next: 2-crypto.html
 ---
-
 
 这节 Peter 跟大家聊聊密码朋克运动。这个早期只有少数精英形成的小圈子，今天发展成加密货币和区块链的全民热潮，想想还真是波澜壮阔而又诡异。我们先聊密码朋克运动是什么，然后介绍历史上的关键时间点有哪些，最后给出一些名人的言论丰满一下我们对这个运动的认识。
 

@@ -1,37 +1,28 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
-import {css} from 'glamor';
-import {colors} from 'theme';
+import { css } from 'glamor';
 
 const prismColors = {
   char: '#D8DEE9',
   comment: '#B2B2B2',
-  keyword: '#c5a5c5',
-  lineHighlight: '#353b45', // colors.dark + extra lightness
-  primitive: '#5a9bcf',
-  string: '#8dc891',
-  variable: '#d7deea',
+  keyword: '#07a',
+  lineHighlight: '#353b45',
+  primitive: '#673AB7',
+  string: '#690',
+  variable: '#9a6e3a',
   boolean: '#ff8b50',
   punctuation: '#88C6BE',
-  tag: '#fc929e',
-  function: '#79b6f2',
-  className: '#FAC863',
-  method: '#6699CC',
-  operator: '#fc929e',
+  tag: '#a16',
+  function: '#dd4a68',
+  className: '#d29314',
+  bg: '#fff',
+  text: '#525252'
 };
 
 css.global('.gatsby-highlight', {
-  background: colors.dark,
-  color: colors.white,
+  background: prismColors.bg,
+  color: prismColors.text,
   borderRadius: 10,
-  overflow: 'auto',
   tabSize: '1.5em',
-  WebkitOverflowScrolling: 'touch',
+  WebkitOverflowScrolling: 'touch'
 });
 
 css.global(
@@ -41,27 +32,27 @@ css.global(
 .gatsby-highlight > pre.prism-code`,
   {
     height: 'auto !important',
-    margin: '1rem',
+    padding: '1rem',
     fontSize: 14,
-    lineHeight: '20px',
-    whiteSpace: 'pre-wrap',
-    wordBreak: 'break-word',
-  },
+    lineHeight: 1.8,
+    overflow: 'auto',
+    whiteSpace: 'pre'
+  }
 );
 
 css.global('.gatsby-highlight + .gatsby-highlight', {
-  marginTop: 20,
+  marginTop: 20
 });
 
 css.global('.gatsby-highlight-code-line', {
   backgroundColor: prismColors.lineHighlight,
   display: 'block',
   margin: '-0.125rem calc(-1rem - 15px)',
-  padding: '0.125rem calc(1rem + 15px)',
+  padding: '0.125rem calc(1rem + 15px)'
 });
 
 css.global('.token.attr-name', {
-  color: prismColors.keyword,
+  color: prismColors.keyword
 });
 
 css.global(
@@ -72,8 +63,8 @@ css.global(
 .token.doctype,
 .token.cdata`,
   {
-    color: prismColors.comment,
-  },
+    color: prismColors.comment
+  }
 );
 
 css.global(
@@ -85,24 +76,24 @@ css.global(
 .token.symbol,
 .token.deleted`,
   {
-    color: prismColors.primitive,
-  },
+    color: prismColors.primitive
+  }
 );
 
 css.global(`.token.boolean`, {
-  color: prismColors.boolean,
+  color: prismColors.boolean
 });
 
 css.global(`.token.tag`, {
-  color: prismColors.tag,
+  color: prismColors.tag
 });
 
 css.global(`.token.string`, {
-  color: prismColors.string,
+  color: prismColors.string
 });
 
 css.global(`.token.punctuation`, {
-  color: prismColors.punctuation,
+  color: prismColors.punctuation
 });
 
 css.global(
@@ -112,12 +103,12 @@ css.global(
 .token.builtin,
 .token.inserted`,
   {
-    color: prismColors.char,
-  },
+    color: prismColors.char
+  }
 );
 
 css.global(`.token.function`, {
-  color: prismColors.function,
+  color: prismColors.function
 });
 
 css.global(
@@ -127,16 +118,16 @@ css.global(
 .token.url,
 .token.variable`,
   {
-    color: prismColors.variable,
-  },
+    color: prismColors.variable
+  }
 );
 
 css.global('.token.attr-value', {
-  color: prismColors.string,
+  color: prismColors.string
 });
 
 css.global('.token.keyword', {
-  color: prismColors.keyword,
+  color: prismColors.keyword
 });
 
 css.global(
@@ -144,25 +135,25 @@ css.global(
 .token.atrule,
 .token.class-name`,
   {
-    color: prismColors.className,
-  },
+    color: prismColors.className
+  }
 );
 
 css.global('.token.important', {
-  fontWeight: 400,
+  fontWeight: 400
 });
 
 css.global('.token.bold', {
-  fontWeight: 700,
+  fontWeight: 700
 });
 css.global('.token.italic', {
-  fontStyle: 'italic',
+  fontStyle: 'italic'
 });
 
 css.global('.token.entity', {
-  cursor: 'help',
+  cursor: 'help'
 });
 
 css.global('.namespace', {
-  opacity: 0.7,
+  opacity: 0.7
 });

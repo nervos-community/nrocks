@@ -1,3 +1,11 @@
+---
+id: 6-wallet
+title: 什么是加密货币钱包？
+permalink: nerv-first/6-wallet.html
+prev: 5-rpc.html
+next: 7-coin.html
+---
+
 即使是比特币以太坊等加密货币的初级用户，也会碰到钱包这个概念。但是如果不理解钱包的定义，分类以及底层原理，其实就很难想清楚如何使用钱包才最安全。
 
 ## 定义和分类

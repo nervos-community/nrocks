@@ -1,22 +1,10 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
 import Helmet from 'react-helmet';
 import React from 'react';
 
-const defaultDescription = 'A JavaScript library for building user interfaces';
+const defaultDescription = 'Learning Nervos Site';
 
-type Props = {
-  title: string,
-  ogDescription: string,
-  ogUrl: string,
-};
 
-const TitleAndMetaTags = ({title, ogDescription, ogUrl}: Props) => {
+const TitleAndMetaTags = ({ title, ogDescription, ogUrl }) => {
   return (
     <Helmet title={title}>
       <meta property="og:title" content={title} />

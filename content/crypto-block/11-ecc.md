@@ -1,3 +1,10 @@
+---
+id: 11-ecc
+title: 椭圆曲线密码学简介
+permalink: crypto-block/11-ecc.html
+prev: 10-merk.html
+---
+
 这一节要聊的是 ECC （ Elliptic Curve Cryptography ），也就是椭圆曲线密码学。跟 RSA 一样，ECC 也属于公开密钥加密，ECC 算法也是用来生成公钥的私钥的。本节我们不会深入椭圆曲线算法本身，只是对 ECC 做一下简介。
 
 ## ECC 的作用

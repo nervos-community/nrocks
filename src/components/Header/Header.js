@@ -1,22 +1,14 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
 import React from 'react';
-import {colors, fonts} from 'theme';
+import { colors, fonts } from 'theme';
 
-import type {Node} from 'react';
-
-const Header = ({children}: {children: Node}) => (
+const Header = ({ children }) => (
   <h1
     css={{
       color: colors.dark,
       marginRight: '5%',
-      ...fonts.header,
-    }}>
+      ...fonts.header
+    }}
+  >
     {children}
   </h1>
 );

@@ -1,3 +1,11 @@
+---
+id: 7-coin
+title: 申请测试链代币
+permalink: nerv-first/7-coin.html
+prev: 6-wallet.html
+next: 8-deploy-1.html
+---
+
 这集咱们要动手做些东西了。要想在 Nervos 的 AppChain 上面部署合约，首先要有拥有一个账户，里面要有币。因为部署是有费用的，到时候费用就会从这个账户里面扣除。这集就来完成创建账户并且往里面充值的操作。注意，课程中使用的是 AppChain 的测试链，所以申请到的代币也是测试链代币，是可以免费领取，不花钱的。
 
 ## 基本原理

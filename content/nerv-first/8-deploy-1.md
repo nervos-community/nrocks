@@ -1,3 +1,11 @@
+---
+id: 8-deploy-1
+title: 部署智能合约 part1
+permalink: nerv-first/8-deploy-1.html
+prev: 7-coin.html
+next: 9-deploy-2.html
+---
+
 通过前面一节，我们已经拥有了一个 AppChain 账户，并且申请了代币。从本节开始来部署一个简单的智能合约到 AppChain 的测试链上。内容比较多，我们分两个部分来完成，本节是第一部分，准备工作。
 
 ## 编译

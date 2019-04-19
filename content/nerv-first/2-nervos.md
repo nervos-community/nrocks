@@ -1,3 +1,11 @@
+---
+id: 2-nervos
+title: 什么是 Nervos ？
+permalink: nerv-first/2-nervos.html
+prev: 1-dapp.html
+next: 3-dev.html
+---
+
 本文来宏观介绍一下 Nervos 。Nervos 是由多条区块链组成的网络，接下来 Peter 就给大家介绍一下 Nervos 网络的分层架构，以及整个生态中各个组件的分工。
 
 ## 宏观思路

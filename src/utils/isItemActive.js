@@ -1,26 +1,11 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
 import slugify from 'utils/slugify';
 
-const toAnchor = (href: string = ''): string => {
+const toAnchor = href => {
   const index = href.indexOf('#');
   return index >= 0 ? href.substr(index) : '';
 };
 
-// TODO Account for redirect_from URLs somehow; they currently won't match.
-// This comment should not be true anymore since we're using 300 redirects
-
-type Item = {
-  id: string,
-  href: string,
-};
-
-const isItemActive = (location: Location, item: Item): boolean => {
+const isItemActive = (location, item) => {
   if (location.hash) {
     if (item.href) {
       return location.hash === toAnchor(item.href);

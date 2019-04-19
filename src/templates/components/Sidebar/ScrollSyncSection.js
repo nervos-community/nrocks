@@ -1,13 +1,4 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the CC-BY-4.0 license found
- * in the LICENSE file in the root directory of this source tree.
- *
- * @emails react-core
- */
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Section from './Section';
 
 class ScrollSyncSection extends Component {
@@ -37,7 +28,7 @@ class ScrollSyncSection extends Component {
   }
 
   calculateItemTopOffsets() {
-    const {section} = this.props;
+    const { section } = this.props;
 
     const itemIds = _getItemIds(section.items);
     this.setState({
@@ -51,7 +42,7 @@ class ScrollSyncSection extends Component {
   }
 
   handleScroll() {
-    const {itemTopOffsets} = this.state;
+    const { itemTopOffsets } = this.state;
     const item = itemTopOffsets.find((itemTopOffset, i) => {
       const nextItemTopOffset = itemTopOffsets[i + 1];
       if (nextItemTopOffset) {
@@ -68,7 +59,7 @@ class ScrollSyncSection extends Component {
   }
 
   render() {
-    const {activeItemId} = this.state;
+    const { activeItemId } = this.state;
     return <Section isScrollSync activeItemId={activeItemId} {...this.props} />;
   }
 }

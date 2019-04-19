@@ -1,3 +1,11 @@
+---
+id: 4-pub
+title: 公开密钥加密
+permalink: crypto-block/4-pub.html
+prev: 3-hash.html
+next: 5-com.html
+---
+
 当代密码学的核心是“公开密钥加密”（ Public-key cryptography ）。我们先来聊聊公开密钥加密的定义，然后介绍一下它的两大应用，最后简要介绍一下两个公开密钥加密的算法。本节的目的是梳理清楚学习密码学的大思路，以便在后续课程中，遇到椭圆曲线，RSA ，加密通信，数字签名这些术语的时候，起码知道它们的大致归属。
 
 ## 定义

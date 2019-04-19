@@ -1,12 +1,8 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @providesModule site-constants
- * @flow
- */
+// Code repo address on GitHub
+const gitHubRepo = 'https://github.com/nervos-community/nrocks/tree/master';
 
 // NOTE: We can't just use `location.toString()` because when we are rendering
 // the SSR part in node.js we won't have a proper location.
-const urlRoot = 'https://reactjs.org';
+const urlRoot = 'https://learning.nervos.org';
 
-export {urlRoot};
+export { urlRoot, gitHubRepo };

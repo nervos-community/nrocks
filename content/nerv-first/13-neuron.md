@@ -1,3 +1,10 @@
+---
+id: 13-neuron
+title: Neuron 钱包作为 DApp 的运行环境
+permalink: nerv-first/13-neuron.html
+prev: 12-react.html
+---
+
 私钥写死到代码里面显然不是一个 DApp 应该有的状态，本节就来把账户信息从源码中移除。这样 DApp 运行在浏览器中就不能签名交易了，也就不能发送留言了。解决方式就是让 DApp 运行在 AppChain 官方的 Neuron 钱包中。
 
 ## Neuron 基本原理

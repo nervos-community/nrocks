@@ -1,39 +1,27 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
+import React, { Component } from 'react';
+import { colors, media } from 'theme';
+import hex2rgba from 'hex2rgba';
 
-import React, {Component} from 'react';
-import {colors, media} from 'theme';
-
-type State = {
-  enabled: boolean,
-};
-
-class DocSearch extends Component<{}, State> {
+class DocSearch extends Component {
   state = {
-    enabled: true,
+    enabled: true
   };
+
   componentDidMount() {
-    // Initialize Algolia search.
-    // TODO Is this expensive? Should it be deferred until a user is about to search?
-    // eslint-disable-next-line no-undef
     if (window.docsearch) {
       window.docsearch({
-        apiKey: '36221914cce388c46d0420343e0bb32e',
-        indexName: 'react',
-        inputSelector: '#algolia-doc-search',
+        apiKey: '91fce6c04d7f68bbb346278719149541',
+        indexName: 'nervos',
+        inputSelector: '#docsearch-input'
       });
     } else {
       console.warn('Search has failed to load and now is being disabled');
-      this.setState({enabled: false});
+      this.setState({ enabled: false });
     }
   }
 
   render() {
-    const {enabled} = this.state;
+    const { enabled } = this.state;
 
     return enabled ? (
       <form
@@ -46,56 +34,55 @@ class DocSearch extends Component<{}, State> {
           paddingRight: '0.25rem',
 
           [media.lessThan('expandedSearch')]: {
-            justifyContent: 'flex-end',
-            marginRight: 10,
+            justifyContent: 'flex-end'
           },
-          // TODO: Something like this could show the full search box in more cases
-          // but it currently breaks its expanding animation.
-          // [media.between('mediumSearch', 'largerSearch')]: {
-          //   width: 'calc(100% / 8)',
-          // },
+
           [media.greaterThan('expandedSearch')]: {
-            minWidth: 100,
-          },
-        }}>
+            minWidth: 100
+          }
+        }}
+      >
         <input
           css={{
             width: '100%',
             appearance: 'none',
-            background: 'transparent',
+            background: hex2rgba(colors.primary, 0.7),
             border: 0,
             color: colors.white,
             fontSize: 18,
             fontWeight: 300,
             fontFamily: 'inherit',
             position: 'relative',
-            padding: '4px 4px 4px 29px',
+            padding: '6px 6px 6px 29px',
             backgroundImage: 'url(/search.svg)',
             backgroundSize: '16px 16px',
             backgroundRepeat: 'no-repeat',
             backgroundPositionY: 'center',
-            backgroundPositionX: '4px',
-
+            backgroundPositionX: '6px',
+            borderRadius: '0.25rem',
+            '&::placeholder': {
+              color: colors.white,
+              paddingLeft: 4,
+              opacity: 0.7
+            },
             ':focus': {
               outline: 0,
-              backgroundColor: colors.lighter,
-              borderRadius: '0.25rem',
+              backgroundColor: colors.primary
             },
 
             [media.lessThan('expandedSearch')]: {
               fontSize: 16,
-              width: '16px',
+              width: 24,
               transition: 'width 0.2s ease, padding 0.2s ease',
-              paddingLeft: '16px',
-
+              paddingLeft: 24,
               ':focus': {
-                paddingLeft: '29px',
-                width: '8rem',
-                outline: 'none',
-              },
-            },
+                paddingLeft: 29,
+                width: '9rem',
+                outline: 'none'
+              }
+            }
           }}
-          id="algolia-doc-search"
+          id="docsearch-input"
           type="search"
           placeholder="Search"
           aria-label="Search docs"

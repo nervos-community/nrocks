@@ -1,3 +1,11 @@
+---
+id: 10-interact
+title: 与合约交互
+permalink: nerv-first/10-interact.html
+prev: 9-deploy-2.html
+next: 11-gas.html
+---
+
 合约部署完毕，真正的开发过程中就可以写 React 代码来跟合约进行交互了。但是咱们课程中为了演示清楚，先抛开 React ，通过写简单的 JS 脚本的形式，跟合约交互一下。
 
 ## 准备工作

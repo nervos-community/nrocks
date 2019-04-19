@@ -1,3 +1,11 @@
+---
+id: 10-merk
+title: Merkle Tree
+permalink: crypto-block/10-merk.html
+prev: 9-math.html
+next: 11-ecc.html
+---
+
 我们为啥又聊 Merkle Tree 呢？ 地球上大部分人应该连它的名字都没有听过。Merkle Tree 是由计算机科学家 Ralph Merkle 在很多年前提出的，并以他本人的名字来命名，中文翻译过来叫默克尔树，也叫哈希树。Merkle Tree 号称区块链面试必考题，因为的确太常用了。说到根本上 Merkle Tree 就是用来做完整性校验的，所谓的完整性校验，就是检查一下数据有没有损坏或者被恶意篡改。Merkle Tree 的最大的应用场合就是在点对点网络上，Git 版本控制系统，IPFS 协议以及比特币以太坊等等项目，都用到了它。
 
 ## 哈希 Hash

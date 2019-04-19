@@ -1,28 +1,14 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import React from 'react';
 import slugify from 'utils/slugify';
-import {colors, media} from 'theme';
+import { colors, media } from 'theme';
 
-import type {Node} from 'react';
-
-type CreateLinkBaseProps = {
-  isActive: boolean,
-  item: Object,
-  section: Object,
-};
-
-const createLinkDocs = ({isActive, item}: CreateLinkBaseProps): Node => {
+const createLinkDocs = ({ isActive, item }) => {
   return (
     <Link
       css={[linkCss, isActive && activeLinkCss]}
-      to={slugify(item.id, item.directory)}>
+      to={slugify(item.id, item.directory)}
+    >
       {isActive && <span css={activeLinkBefore} />}
       {item.title}
     </Link>
@@ -30,21 +16,21 @@ const createLinkDocs = ({isActive, item}: CreateLinkBaseProps): Node => {
 };
 
 const activeLinkCss = {
-  fontWeight: 700,
+  fontWeight: 700
 };
 
 const activeLinkBefore = {
   width: 4,
   height: 25,
-  borderLeft: `4px solid ${colors.brand}`,
+  borderLeft: `4px solid ${colors.primary}`,
   paddingLeft: 16,
   position: 'absolute',
   left: 0,
   marginTop: -3,
 
   [media.greaterThan('largerSidebar')]: {
-    left: 15,
-  },
+    left: 15
+  }
 };
 
 const linkCss = {
@@ -55,8 +41,8 @@ const linkCss = {
   marginTop: 5,
 
   '&:hover': {
-    color: colors.subtle,
-  },
+    color: colors.subtle
+  }
 };
 
-export {createLinkDocs};
+export { createLinkDocs };

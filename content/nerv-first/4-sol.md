@@ -1,3 +1,11 @@
+---
+id: 4-sol
+title: 合约编程语言 Solidity
+permalink: nerv-first/4-sol.html
+prev: 3-dev.html
+next: 5-rpc.html
+---
+
 编写智能合约绕不过去的一个坑就是要学新的编程语言，其中最知名的一个就是 Solidity 。这篇小文是 Solidity 的一个开发入门。首先介绍 Solidity 的诞生和自我定位，接下来聊聊 Solidity 的一些具体特点，最后介绍一下网上 Peter 觉得最优秀的学习 Solidity 的网站资源。
 
 ## Solidity 定位

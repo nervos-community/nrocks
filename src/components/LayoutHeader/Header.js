@@ -1,109 +1,71 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
-import Container from 'components/Container';
-import {Link} from 'gatsby';
 import React from 'react';
-import {colors, media} from 'theme';
+import { Link } from 'gatsby';
+import { colors, media } from 'theme';
+import Container from 'components/Container';
+import LogoIcon from 'svg/Logo';
 import DocSearch from './DocSearch';
-
-import logoSvg from 'icons/logo.svg';
 
 const Header = () => (
   <header
     css={{
-      backgroundColor: colors.brand,
-      color: colors.white,
+      backgroundColor: colors.header,
+      color: colors.text,
       position: 'fixed',
-      zIndex: 1,
+      zIndex: 100,
       width: '100%',
       top: 0,
       left: 0,
-    }}>
+      [media.lessThan('small')]: {
+        boxShadow: `0 4px 12px 0 rgba(0,0,0,.15)`
+      }
+    }}
+  >
     <Container>
       <div
         css={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'space-between',
           height: 60,
           [media.between('small', 'large')]: {
-            height: 50,
+            height: 50
           },
           [media.lessThan('small')]: {
-            height: 40,
-          },
-        }}>
+            height: 45
+          }
+        }}
+      >
         <Link
           css={{
             display: 'flex',
             marginRight: 10,
             height: '100%',
             alignItems: 'center',
-            color: colors.white,
-
-            ':focus': {
-              outline: 0,
-              color: colors.white,
-            },
 
             [media.greaterThan('small')]: {
-              width: 'calc(100% / 6)',
+              width: 'calc(100% / 6)'
             },
             [media.lessThan('small')]: {
-              flex: '0 0 auto',
-            },
+              flex: '0 0 auto'
+            }
           }}
-          to="/">
-          <img src={logoSvg} alt="" height="20" />
-          <span
+          to="/"
+        >
+          <LogoIcon
             css={{
-              color: 'inherit',
-              marginLeft: 10,
-              fontWeight: 700,
-              fontSize: 20,
-              lineHeight: '20px',
-              [media.lessThan('large')]: {
-                fontSize: 16,
-                marginTop: 1,
+              width: 90,
+              [media.between('small', 'large')]: {
+                width: 70
               },
               [media.lessThan('small')]: {
-                // Visually hidden
-                position: 'absolute',
-                overflow: 'hidden',
-                clip: 'rect(0 0 0 0)',
-                height: 1,
-                width: 1,
-                margin: -1,
-                padding: 0,
-                border: 0,
-              },
-            }}>
-            Nervos
-          </span>
+                width: 60
+              }
+            }}
+          />
         </Link>
 
         <DocSearch />
-
-        <div
-          css={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            width: 'auto',
-
-            //[media.lessThan('medium')]: {
-            //width: 'auto',
-            //},
-            //[media.greaterThan('large')]: {
-            //width: 'calc(100% / 4)',
-            //},
-          }}
-        />
       </div>
     </Container>
   </header>

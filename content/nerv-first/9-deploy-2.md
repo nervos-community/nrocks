@@ -1,3 +1,11 @@
+---
+id: 9-deploy-2
+title: 部署智能合约 part2
+permalink: nerv-first/9-deploy-2.html
+prev: 8-deploy-1.html
+next: 10-interact.html
+---
+
 UPDATE: 由于 Nervos 那边的升级，操作过程中有些步骤需要调整，具体内容参考：https://talk.nervos.org/t/topic/362
 
 接着上一节，继续来完成部署。

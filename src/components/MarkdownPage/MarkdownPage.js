@@ -1,36 +1,18 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
-import Container from 'components/Container';
+import React from 'react';
 import Flex from 'components/Flex';
 import MarkdownHeader from 'components/MarkdownHeader';
 import NavigationFooter from 'templates/components/NavigationFooter';
-import React from 'react';
 import StickyResponsiveSidebar from 'components/StickyResponsiveSidebar';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
-import toCommaSeparatedList from 'utils/toCommaSeparatedList';
-import {sharedStyles} from 'theme';
+import { sharedStyles, colors, media } from 'theme';
 import createOgUrl from 'utils/createOgUrl';
+import PlayCircleIcon from 'svg/PlayCircle';
+import CreateIcon from 'svg/Create';
+import { gitHubRepo } from 'site-constants';
+import { Link } from 'gatsby';
+import ArrowBackIcon from 'svg/ArrowBack';
 
-import type {Node} from 'types';
-
-type Props = {
-  authors: Array<string>,
-  createLink: Function, // TODO: Add better flow type once we Flow-type createLink
-  date?: string,
-  enableScrollSync?: boolean,
-  ogDescription: string,
-  location: Location,
-  markdownRemark: Node,
-  itemList: Array<Object>, // TODO: Add better flow type once we have the Section component
-  titlePostfix: string,
-};
-
-const getPageById = (itemList: Array<Object>, templateFile: ?string) => {
+const getPageById = (itemList, templateFile) => {
   if (!templateFile) {
     return null;
   }
@@ -39,99 +21,144 @@ const getPageById = (itemList: Array<Object>, templateFile: ?string) => {
 };
 
 const MarkdownPage = ({
-  authors = [],
   createLink,
-  date,
   enableScrollSync,
   ogDescription,
   location,
   markdownRemark,
   itemList,
-  titlePostfix = '',
-}: Props) => {
-  const hasAuthors = authors.length > 0;
+  titlePostfix = ''
+}) => {
   const titlePrefix = markdownRemark.frontmatter.title || '';
 
   const prev = getPageById(itemList, markdownRemark.frontmatter.prev);
   const next = getPageById(itemList, markdownRemark.frontmatter.next);
+  const videoLink = itemList.filter(
+    item => item.title === markdownRemark.frontmatter.title
+  );
+
+  const courseId = markdownRemark.fields.slug.split('/')[0];
 
   return (
     <Flex
-      direction="column"
+      direction="row"
       grow="1"
       shrink="0"
       halign="stretch"
-      css={{
-        width: '100%',
-        flex: '1 0 auto',
-        position: 'relative',
-        zIndex: 0,
-      }}>
+      css={{ width: '100%', flex: '1 0 auto', position: 'relative', zIndex: 0 }}
+    >
       <TitleAndMetaTags
         ogDescription={ogDescription}
         ogUrl={createOgUrl(markdownRemark.fields.slug)}
         title={`${titlePrefix}${titlePostfix}`}
       />
-      <div css={{flex: '1 0 auto'}}>
-        <Container>
-          <div css={sharedStyles.articleLayout.container}>
-            <Flex type="article" direction="column" grow="1" halign="stretch">
+
+      <StickyResponsiveSidebar
+        enableScrollSync={enableScrollSync}
+        createLink={createLink}
+        location={location}
+        itemList={itemList}
+      />
+
+      <div
+        css={{
+          paddingLeft: 20,
+          paddingRight: 20,
+          backgroundColor: '#fafafa',
+          width: '100%',
+          [media.greaterThan('medium')]: {
+            width: `calc(100% - 298px)`
+          }
+        }}
+      >
+        <div css={sharedStyles.articleLayout.container}>
+          <div css={{ width: '100%' }}>
+            <Link
+              to={`/${courseId}`}
+              css={{ display: 'flex', alignItems: 'center', marginTop: 24 }}
+            >
+              <ArrowBackIcon css={{ fill: colors.primary, width: 20 }} />
+              <span
+                css={{ color: colors.primary, paddingLeft: 4, fontWeight: 500 }}
+              >
+                返回
+              </span>
+            </Link>
+            <div className="docSearch-content">
               <MarkdownHeader title={titlePrefix} />
 
-              {(date || hasAuthors) && (
-                <div css={{marginTop: 15}}>
-                  {date}{' '}
-                  {hasAuthors && (
-                    <span>
-                      by{' '}
-                      {toCommaSeparatedList(authors, author => (
-                        <a
-                          css={sharedStyles.link}
-                          href={author.frontmatter.url}
-                          key={author.frontmatter.name}>
-                          {author.frontmatter.name}
-                        </a>
-                      ))}
-                    </span>
-                  )}
-                </div>
+              {videoLink.length && (
+                <a
+                  href={videoLink[0].video}
+                  css={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginTop: 32,
+                    textDecoration: 'none',
+                    '& span': { marginLeft: 8 }
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <PlayCircleIcon css={{ width: 32, fill: colors.primary }} />
+                  <span
+                    css={{
+                      lineHeight: 1.8,
+                      color: colors.primary,
+                      borderBottom: `1px solid ${colors.primary}`
+                    }}
+                  >
+                    到 B 站观看视频
+                  </span>
+                </a>
               )}
-
               <div css={sharedStyles.articleLayout.content}>
                 <div
                   css={[sharedStyles.markdown]}
-                  dangerouslySetInnerHTML={{__html: markdownRemark.html}}
+                  dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
                 />
 
+                {(next || prev) && (
+                  <NavigationFooter
+                    location={location}
+                    next={next}
+                    prev={prev}
+                  />
+                )}
+
                 {markdownRemark.fields.path && (
-                  <div css={{marginTop: 80}}>
+                  <div>
+                    <hr
+                      css={{
+                        height: 1,
+                        border: 'none',
+                        marginTop: 24,
+                        marginBottom: 24,
+                        backgroundColor: '#f5f3f7'
+                      }}
+                    />
                     <a
                       css={sharedStyles.articleLayout.editLink}
-                      href={`https://github.com/reactjs/reactjs.org/tree/master/${
-                        markdownRemark.fields.path
-                      }`}>
-                      Edit this page
+                      href={`${gitHubRepo}/${markdownRemark.fields.path}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <CreateIcon
+                        css={{
+                          width: 20,
+                          fill: colors.primary,
+                          marginRight: 4
+                        }}
+                      />
+                      edit this page on GitHub
                     </a>
                   </div>
                 )}
               </div>
-            </Flex>
-
-            <div css={sharedStyles.articleLayout.sidebar}>
-              <StickyResponsiveSidebar
-                enableScrollSync={enableScrollSync}
-                createLink={createLink}
-                location={location}
-                itemList={itemList}
-              />
             </div>
           </div>
-        </Container>
+        </div>
       </div>
-
-      {(next || prev) && (
-        <NavigationFooter location={location} next={next} prev={prev} />
-      )}
     </Flex>
   );
 };

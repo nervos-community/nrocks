@@ -1,12 +1,6 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
 import React from 'react';
 
-const ExternalLinkSvg = ({cssProps = {}}: {cssProps: Object}) => (
+const ExternalLinkSvg = ({ cssProps = {} }: { cssProps: Object }) => (
   <svg
     x="0px"
     y="0px"

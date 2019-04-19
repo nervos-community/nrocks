@@ -1,3 +1,11 @@
+---
+id: 5-rpc
+title: HTTP 请求和 JSON-RPC
+permalink: nerv-first/5-rpc.html
+prev: 4-sol.html
+next: 6-wallet.html
+---
+
 Peter 自己是一个多年的 Web 开发者，每天操作服务器都是发普通的 HTTP 请求，生活是美满幸福的，但是到区块链这边再看，本地操作服务器都是用 JSON-RPC 了，类似 bitcoin， 以太坊，包括 nervos 都是用 JSON-RPC 。本文就是献给跟我知识背景差不多的，理解什么是 HTTP 请求，想要多了解一下什么是 JSON-RPC 的朋友们。
 
 ## 什么是 RPC ?

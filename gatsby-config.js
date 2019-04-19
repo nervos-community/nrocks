@@ -1,47 +1,29 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict';
-
 module.exports = {
   siteMetadata: {
-    title: 'React: A JavaScript library for building user interfaces',
-    siteUrl: 'https://reactjs.org',
-    rssFeedTitle: 'React',
-    rssFeedDescription: 'A JavaScript library for building user interfaces',
-  },
-  mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
+    title: 'Learning nervos site'
   },
   plugins: [
-    'gatsby-source-react-error-codes',
-    'gatsby-transformer-authors-yaml',
-    'gatsby-transformer-home-example-code',
-    'gatsby-plugin-netlify',
+    'gatsby-transformer-course-yaml',
     'gatsby-plugin-glamor',
-    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: '#61dafb',
-      },
+        color: '#61dafb'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/src/pages`,
-      },
+        path: `${__dirname}/src/pages`
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: `${__dirname}/content/`,
-      },
+        path: `${__dirname}/content/`
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -51,31 +33,31 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 840,
-            },
+              maxWidth: 640
+            }
           },
-          'gatsby-remark-header-custom-ids',
+          `gatsby-remark-autolink-headers`,
           'gatsby-remark-use-jsx',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
-              classPrefix: 'gatsby-code-',
-            },
+              classPrefix: 'gatsby-code-'
+            }
           },
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
+          'gatsby-remark-smartypants'
+        ]
+      }
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-41298772-1',
-      },
+        trackingId: 'UA-126744557-1'
+      }
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
-  ],
+    'gatsby-plugin-catch-links'
+  ]
 };

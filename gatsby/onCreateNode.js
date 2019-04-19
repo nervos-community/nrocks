@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict';
-
 const path = require('path');
 
 function buildRedirectString(permalink, redirect_from) {
@@ -23,13 +15,13 @@ function buildRedirectString(permalink, redirect_from) {
 }
 
 // Add custom fields to MarkdownRemark nodes.
-module.exports = exports.onCreateNode = ({node, actions, getNode}) => {
-  const {createNodeField} = actions;
+module.exports = exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
 
   switch (node.internal.type) {
     case 'MarkdownRemark':
-      const {permalink, redirect_from} = node.frontmatter;
-      const {relativePath, sourceInstanceName} = getNode(node.parent);
+      const { permalink, redirect_from } = node.frontmatter;
+      const { relativePath, sourceInstanceName } = getNode(node.parent);
 
       let slug = permalink;
 

@@ -1,25 +1,4 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- * @flow
- */
-
-import {createElement} from 'glamor/react';
-
-import type {Node} from 'react';
-
-type Props = {
-  basis: string,
-  children: Node,
-  direction: string,
-  grow: number,
-  halign: string,
-  shrink: number,
-  type: string,
-  valign: string,
-  rest: Array<any>,
-};
+import { createElement } from 'glamor/react';
 
 /**
  * Convenience component for declaring a flexbox layout.
@@ -34,7 +13,7 @@ const Flex = ({
   type = 'div',
   valign = 'flex-start',
   ...rest
-}: Props) =>
+}) =>
   createElement(
     type,
     {

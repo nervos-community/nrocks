@@ -1,25 +1,19 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Flex from 'components/Flex';
 import Section from './Section';
-import {media} from 'theme';
+import { media } from 'theme';
 
 class Sidebar extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      activeSection: props.defaultActiveSection,
+      activeSection: props.defaultActiveSection
     };
   }
 
   render() {
-    const {closeParentMenu, createLink, location, itemList} = this.props;
+    const { closeParentMenu, createLink, location, itemList } = this.props;
 
     return (
       <Flex
@@ -32,13 +26,14 @@ class Sidebar extends Component {
           position: 'relative',
 
           [media.greaterThan('largerSidebar')]: {
-            paddingLeft: 40,
+            paddingLeft: 40
           },
 
           [media.lessThan('small')]: {
-            paddingBottom: 100,
-          },
-        }}>
+            paddingBottom: 100
+          }
+        }}
+      >
         {itemList.map((item, index) => (
           <Section
             createLink={createLink}
@@ -55,7 +50,7 @@ class Sidebar extends Component {
 
   _toggleSection(section) {
     this.setState(state => ({
-      activeSection: state.activeSection === section ? null : section,
+      activeSection: state.activeSection === section ? null : section
     }));
   }
 }

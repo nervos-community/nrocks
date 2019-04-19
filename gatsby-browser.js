@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict';
-
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -21,4 +13,4 @@ window.ReactDOM = ReactDOM;
 
 // A stub function is needed because gatsby won't load this file otherwise
 // (https://github.com/gatsbyjs/gatsby/issues/6759)
-exports.onClientEntry = () => {};
+exports.onClientEntry = () => { };
